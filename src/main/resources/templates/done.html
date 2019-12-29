@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Post list</title>
+    </head>
+    <body>
+
+        <h1>Post list</h1>
+
+        <h2>Posts:</h2>
+        <div th:each="reg : ${registers}">
+            <p>
+                <span  th:utext="${reg.name}"></span>
+                <span> said:</span>
+                <span th:text="${reg.message}"></span>
+            </p>
+        </div>
+
+        <a href="/">Back</a>
+    </body>
+</html>
+
+<style>
+    body {
+        background-color: LightCyan;
+    }
+
+</style>

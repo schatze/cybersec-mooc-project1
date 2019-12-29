@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Admin</title>
+    </head>
+    <body>
+
+        <h1>Secret admin page!</h1>
+
+        <img src="https://i.chzbgr.com/original/8408131072/h47CA3377/"></img>
+
+        <h2>Users:</h2>
+        <div th:each="user : ${users}">
+            <p>
+                <b><span th:utext="${user.username}">user</span></b>
+                hash:
+                <span th:utext="${user.password}">pass</span>
+            </p>
+        </div>
+
+        <div th:if="${admin}">
+            <h2>Add user:</h2>
+            <form action="#" th:action="@{/user}" method="POST">
+                <p><label for="username">Username</label>: <input type="text" name="username" id="username"/></p>
+                <p><label for="password">Password</label>: <input type="password" name="password" id="password"/></p>
+                <p><input type="submit" value="Submit" /></p>
+            </form>
+        </div>
+
+        <a href="/">Back</a>
+    </body>
+</html>
+
+<style>
+    body {
+        background-color: azure;
+    }
+
+</style>

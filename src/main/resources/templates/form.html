@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Messageboard</title>
+    </head>
+    <body>
+
+        <h1>Post messages to the board.</h1>
+
+        <form action="#" th:action="@{/form}" method="POST">
+            <input type="hidden" id="name" name="name" th:value="${user}"></input>
+            <p><label for="message">Message</label>: <input type="text" name="message" id="message"/></p>
+            <p><input type="submit" value="Submit" /></p>
+        </form>
+
+        <h2><a href="/done">View posts</a></h2>
+
+        <div th:if="${admin}">
+            <p><a href="/admin">Admin panel</a></p>
+        </div>
+        <div th:unless="${admin}">
+            <p>You do not have admin access.</p>
+        </div>
+
+
+        <div>
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out"/>
+            </form>
+        </div>
+
+
+
+        <div><img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"></img></div>
+
+
+    </body>
+</html>
+
+<style>
+    body {
+        background-color: linen;
+    }
+
+    img {
+        padding: 20px;
+    }
+
+    input[type=submit] {
+        width: 20em;  height: 2em;
+    }
+</style>
